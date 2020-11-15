@@ -8,6 +8,10 @@ namespace BloomFilter
 
         private static Filter filter = new Filter();
 
+        private static Redis redis = new Redis();
+
+        private static Postgres postgres = new Postgres();
+
         public bool isKeyInCache(String key)
         {
             return filter.notPresentInCache(key);
@@ -16,17 +20,19 @@ namespace BloomFilter
         public bool addDataToCache(String key, String value)
         {
             filter.addKey(key);
-            return false;
+            redis.addData(key, value);
+            return true;
         }
 
-        public bool addDataToDb(String key, String valuer)
+        public bool addDataToDb(String key, String value)
         {
-            return false;
+            postgres.addData(key, value);
+            return true;
         }
 
-        public bool getDataFromCache(String key)
+        public String getDataFromCache(String key)
         {
-            return false;
+            return redis.getData(key);
         }
 
         public bool getDataFromDb(String key)

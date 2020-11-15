@@ -10,11 +10,17 @@ namespace BloomFilter
         static void Main(string[] args)
         {
 
-            bool addKeyToCache = dataHandler.addDataToCache("Hi", "Hello");
-            Console.WriteLine(addKeyToCache);
+            // bool addKeyToCache = dataHandler.addDataToCache("Hi", "Hello");
 
-            bool isKeyPresent = dataHandler.isKeyInCache("Hi");
-            Console.WriteLine(isKeyPresent);
+            // if (dataHandler.isKeyInCache("Hi"))
+            // {
+            //     Console.WriteLine(dataHandler.getDataFromCache("Hi"));
+            // } 
+            // else
+            // {
+
+            // }
+            dataHandler.addDataToDb("Hi", "Hello");
         }
     }
 }
